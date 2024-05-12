@@ -1,0 +1,72 @@
+package com.polytron.phonebook.model;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "phonebook_table")
+public class Phonebook {
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "user_id")
+    public int userId;
+
+    @ColumnInfo(name = "first_name")
+    @NonNull()
+    public String firstName;
+
+    @ColumnInfo(name = "middle_name")
+    public String middleName;
+
+    @ColumnInfo(name = "last_name")
+    @NonNull()
+    public String lastName;
+
+    @ColumnInfo(name = "group")
+    public String group;
+
+    @ColumnInfo(name = "primary_phone")
+    @NonNull()
+    public String primaryPhone;
+
+    @ColumnInfo(name = "secondary_phone")
+    public String secondaryPhone;
+
+    public Phonebook(@NonNull String firstName, @NonNull String lastName, @NonNull String primaryPhone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.primaryPhone = primaryPhone;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    @NonNull
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    @NonNull
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    @NonNull
+    public String getPrimaryPhone() {
+        return primaryPhone;
+    }
+
+    public String getSecondaryPhone() {
+        return secondaryPhone;
+    }
+}
