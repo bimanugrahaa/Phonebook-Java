@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_margin="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.NewPhonebookActivity">
+
+    <TextView
+        android:id="@+id/add_new_contact_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_contact"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/firstName_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/first_name"
+        android:inputType="textAutoComplete"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_new_contact_text" />
+
+    <EditText
+        android:id="@+id/middleName_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/middle_name"
+        android:inputType="textAutoComplete"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstName_editText" />
+
+    <EditText
+        android:id="@+id/lastName_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/last_name"
+        android:inputType="textAutoComplete"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/middleName_editText" />
+
+    <EditText
+        android:id="@+id/primaryPhone_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/primary_phone"
+        android:inputType="phone"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastName_editText" />
+
+    <EditText
+        android:id="@+id/SecondaryPhone_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/secondary_phone"
+        android:inputType="phone"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/primaryPhone_editText" />
+
+    <EditText
+        android:id="@+id/groups_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="name"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/groups"
+        android:inputType="textAutoComplete"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_new_contact_text" />
+
+<!--    <Button-->
+<!--        android:id="@+id/button_save"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:text="@string/button_save"-->
+<!--        android:layout_margin="@dimen/big_padding"-->
+<!--        android:textColor="@color/buttonLabel" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

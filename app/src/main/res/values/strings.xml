@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Phone Book</string>
+    <string name="phone_book">Phone Book</string>
+    <string name="user_name">User Name</string>
+    <string name="add_new_contact">Add New Contact</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="primary_phone">Primary Phone</string>
+    <string name="secondary_phone">Secondary Phone</string>
+    <string name="groups">Groups</string>
 </resources>
