@@ -9,4 +9,11 @@
     <string name="primary_phone">Primary Phone</string>
     <string name="secondary_phone">Secondary Phone</string>
     <string name="groups">Groups</string>
+    <string name="edit_contact">Edit Contact</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="name_example">First Middle Last Name</string>
+    <string name="primary_number">Primary number</string>
+    <string name="number_example">081234567890</string>
+    <string name="secondary_number">Secondary number</string>
 </resources>
