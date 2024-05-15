@@ -27,14 +27,14 @@ public interface PhonebookDao {
     @Query("SELECT * FROM phonebook_table WHERE user_id = :userId")
     LiveData<Phonebook> getUserDetail(int userId);
 
+    @Query("SELECT * FROM phonebook_table GROUP BY `group`")
+    LiveData<List<Phonebook>> getUserByGroup();
+
     //  Update
-//    @Update(entity = Phonebook.class, onConflict = OnConflictStrategy.REPLACE)
-    @Update()
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     void updatePhoneBook(Phonebook phonebook);
 
     //  Delete selected user
-//    @Query("DELETE FROM phonebook_table WHERE user_id = :userId")
-//    int deleteUser(int userId);
     @Delete()
     void deleteUser(Phonebook phonebook);
 

@@ -22,11 +22,9 @@ public class PhonebookViewModel extends AndroidViewModel {
     }
     public LiveData<List<Phonebook>> getAllPhonebook() { return allPhonebook; }
     public LiveData<Phonebook> getUserDetail(int userId) { return phonebookRepository.getUserDetail(userId); }
+    public LiveData<List<Phonebook>> getUserByGroup() { return  phonebookRepository.getUserByGroup(); }
     public void insertPhonebook(Phonebook phonebook) { phonebookRepository.insertPhonebook(phonebook); }
-//    public void updatePhonebook(Phonebook phonebook) { phonebookRepository.updatePhonebook(phonebook); }
     public void updatePhonebook(Phonebook phonebook) { phonebookRepository.updatePhonebook(phonebook); }
-    //    public int deleteUser(int userId) { return phonebookRepository.deleteUser(userId); }
     public void deleteUser(Phonebook phonebook) { phonebookRepository.deleteUser(phonebook); }
     public void deleteAll() { phonebookRepository.deleteAll(); }
-
 }

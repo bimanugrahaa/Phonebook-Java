@@ -47,11 +47,11 @@ public class PhonebookListAdapter extends ListAdapter<Phonebook, PhonebookViewHo
             v.getContext().startActivity(intent);
         });
 
-        holder.btnDelete.setOnClickListener(v -> {
+        holder.itemPhonebookBinding.deleteButtonRv.setOnClickListener(v -> {
             phonebookViewModel.deleteUser(current);
         });
 
-        holder.btnEdit.setOnClickListener(v -> {
+        holder.itemPhonebookBinding.editButtonRv.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), EditPhonebookActivity.class);
             intent.putExtra("user_id", current.getUserId());
             v.getContext().startActivity(intent);

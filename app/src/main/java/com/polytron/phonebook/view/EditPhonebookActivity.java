@@ -2,8 +2,10 @@ package com.polytron.phonebook.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +24,7 @@ import java.util.ArrayList;
 public class EditPhonebookActivity extends AppCompatActivity {
 
     ActivityEditPhonebookBinding activityEditPhonebookBinding;
-    int user_id;
+    private int user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,21 +52,33 @@ public class EditPhonebookActivity extends AppCompatActivity {
             String secondary_phone = activityEditPhonebookBinding.secondaryPhoneEditText.getText().toString();
             String group = activityEditPhonebookBinding.groupsEditText.getText().toString();
 
-            Intent replyIntent = new Intent();
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(first_name);
-            arrayList.add(middle_name);
-            arrayList.add(last_name);
-            arrayList.add(primary_phone);
-            arrayList.add(secondary_phone);
-            arrayList.add(group);
-
-            Phonebook phonebook = new Phonebook(arrayList.get(0), arrayList.get(2), arrayList.get(3), arrayList.get(1), arrayList.get(4), arrayList.get(5));
-            phonebook.PhonebookUpdate(user_id, phonebook);
-            Log.d("phonebookUpdate", String.valueOf(phonebook));
-            phonebookViewModel.updatePhonebook(phonebook);
-            finish();
+            if (TextUtils.isEmpty(activityEditPhonebookBinding.firstNameEditText.getText().toString())){
+                Toast.makeText(
+                        getApplicationContext(),
+                        "First Name can not be blank.",
+                        Toast.LENGTH_LONG
+                ).show();
+            } else if (TextUtils.isEmpty(activityEditPhonebookBinding.lastNameEditText.getText().toString())){
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Last Name can not be blank.",
+                        Toast.LENGTH_LONG
+                ).show();
+            } else if (TextUtils.isEmpty(activityEditPhonebookBinding.primaryPhoneEditText.getText().toString())){
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Primary phone can not be blank.",
+                        Toast.LENGTH_LONG
+                ).show();
+            } else {
+                Phonebook phonebook = new Phonebook(first_name, middle_name, last_name, group, primary_phone, secondary_phone);
+                phonebook.PhonebookUpdate(user_id, phonebook);
+                phonebookViewModel.updatePhonebook(phonebook);
+                finish();
+            }
         });
+
+        activityEditPhonebookBinding.buttonCancel.setOnClickListener(v -> finish());
 
     }
 }

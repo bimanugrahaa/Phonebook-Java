@@ -25,11 +25,7 @@ import com.polytron.phonebook.modelview.PhonebookViewModel;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-    private PhonebookViewModel phonebookViewModel;
-    public static  final int NEW_PHONEBOOK_ACTIVITY_REQUEST_CODE = 1;
     ActivityMainBinding activityMainBinding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         View view = activityMainBinding.getRoot();
         setContentView(view);
 
-        phonebookViewModel = new ViewModelProvider(this).get(PhonebookViewModel.class);
-
-//        RecyclerView recyclerView = findViewById(R.id.home_recyclerView);
         RecyclerView recyclerView = activityMainBinding.homeRecyclerView;
         final PhonebookListAdapter adapter = new PhonebookListAdapter(new
                 PhonebookListAdapter.PhonebookDiff(), this.getApplication());
@@ -47,43 +40,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         activityMainBinding.homeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ImageButton btnDelete = findViewById(R.id.delete_button_rv);
-        ImageButton btnEdit = findViewById(R.id.edit_button_rv);
-
-//        btnDelete.setOnClickListener(v -> {
-//            phonebookViewModel.deleteUser(userId);
-//        });
         activityMainBinding.fabAdd.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddPhonebookActivity.class);
-            startActivityForResult(intent, NEW_PHONEBOOK_ACTIVITY_REQUEST_CODE);
+            startActivity(intent);
         });
 
-        //  Update the cached copy of the words in the adapter.
+        PhonebookViewModel phonebookViewModel = new ViewModelProvider(this).get(PhonebookViewModel.class);
         phonebookViewModel.getAllPhonebook().observe(this, adapter::submitList);
-
-
-
-//        phonebookViewModel = new ViewModelProvider(this).get(PhonebookViewModel.class);
-//        //  Update the cached copy of the words in the adapter.
-//        phonebookViewModel.getAllPhonebook().observe(this, adapter::submitList);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == NEW_PHONEBOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-
-            ArrayList<String> arrayList;
-            arrayList = data.getStringArrayListExtra(AddPhonebookActivity.EXTRA_REPLY);
-            assert arrayList != null;
-            Phonebook phonebook = new Phonebook(arrayList.get(0), arrayList.get(2), arrayList.get(3), arrayList.get(1), arrayList.get(4), arrayList.get(5));
-            phonebookViewModel.insertPhonebook(phonebook);
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    "Not saved",
-                    Toast.LENGTH_LONG
-            ).show();
-        }
     }
 }

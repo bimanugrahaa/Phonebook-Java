@@ -16,22 +16,13 @@ import com.polytron.phonebook.modelview.PhonebookViewModel;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PhonebookViewHolder extends RecyclerView.ViewHolder {
-    ItemPhonebookBinding itemPhonebookBinding;
-    PhonebookViewModel phonebookViewModel;
-    public TextView userName;
-    public ImageButton btnDelete;
-    public ImageButton btnEdit;
-
+    public ItemPhonebookBinding itemPhonebookBinding;
     public PhonebookViewHolder(@NonNull View itemView) {
         super(itemView);
-//        TextView userName = itemPhonebookBinding.userName;
-
-        userName = itemView.findViewById(R.id.user_name);
-        btnDelete = itemView.findViewById(R.id.delete_button_rv);
-        btnEdit = itemView.findViewById(R.id.edit_button_rv);
+        itemPhonebookBinding = ItemPhonebookBinding.bind(itemView);
     }
     public void bind(String text) {
-        userName.setText(text);
+        itemPhonebookBinding.userName.setText(text);
     }
     public static PhonebookViewHolder create(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext())
