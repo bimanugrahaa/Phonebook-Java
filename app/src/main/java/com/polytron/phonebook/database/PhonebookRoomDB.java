@@ -25,7 +25,7 @@ public abstract class PhonebookRoomDB extends RoomDatabase {
             synchronized (PhonebookRoomDB.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    PhonebookRoomDB.class, "word_database").build();
+                                    PhonebookRoomDB.class, "phonebook_database").build();
                 }
             }
         }

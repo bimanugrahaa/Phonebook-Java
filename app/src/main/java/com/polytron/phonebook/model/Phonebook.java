@@ -1,6 +1,9 @@
 package com.polytron.phonebook.model;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -17,6 +20,7 @@ public class Phonebook {
     public String firstName;
 
     @ColumnInfo(name = "middle_name")
+    @NonNull()
     public String middleName;
 
     @ColumnInfo(name = "last_name")
@@ -24,6 +28,7 @@ public class Phonebook {
     public String lastName;
 
     @ColumnInfo(name = "group")
+    @NonNull()
     public String group;
 
     @ColumnInfo(name = "primary_phone")
@@ -31,12 +36,17 @@ public class Phonebook {
     public String primaryPhone;
 
     @ColumnInfo(name = "secondary_phone")
+    @NonNull()
     public String secondaryPhone;
 
-    public Phonebook(@NonNull String firstName, @NonNull String lastName, @NonNull String primaryPhone) {
+    public Phonebook(@NonNull String firstName, @NonNull String lastName, @NonNull String primaryPhone, @NonNull String middleName, @NonNull String group, @NonNull String secondaryPhone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.primaryPhone = primaryPhone;
+
+        this.middleName = middleName;
+        this.group = group;
+        this.secondaryPhone = secondaryPhone;
     }
 
     public int getUserId() {
