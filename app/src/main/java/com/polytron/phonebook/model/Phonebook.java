@@ -1,9 +1,6 @@
 package com.polytron.phonebook.model;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -47,6 +44,17 @@ public class Phonebook {
         this.middleName = middleName;
         this.group = group;
         this.secondaryPhone = secondaryPhone;
+    }
+
+    public void PhonebookUpdate(int userId, Phonebook phonebook) {
+        this.userId = userId;
+        this.firstName = phonebook.firstName;
+        this.lastName = phonebook.lastName;
+        this.primaryPhone = phonebook.primaryPhone;
+
+        this.middleName = phonebook.middleName;
+        this.group = phonebook.group;
+        this.secondaryPhone = phonebook.secondaryPhone;
     }
 
     public int getUserId() {

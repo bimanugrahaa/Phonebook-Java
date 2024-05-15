@@ -3,6 +3,7 @@ package com.polytron.phonebook.dao;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
+import androidx.room.Entity;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -27,7 +28,8 @@ public interface PhonebookDao {
     LiveData<Phonebook> getUserDetail(int userId);
 
     //  Update
-    @Update(onConflict = OnConflictStrategy.IGNORE)
+//    @Update(entity = Phonebook.class, onConflict = OnConflictStrategy.REPLACE)
+    @Update()
     void updatePhoneBook(Phonebook phonebook);
 
     //  Delete selected user

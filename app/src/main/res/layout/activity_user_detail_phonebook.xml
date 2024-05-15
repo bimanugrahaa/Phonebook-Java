@@ -38,6 +38,7 @@
             android:text="@string/primary_number"/>
 
         <TextView
+            android:id="@+id/primary_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -64,6 +65,7 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/secondary_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"

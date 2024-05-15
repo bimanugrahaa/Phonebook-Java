@@ -43,10 +43,8 @@ public class PhonebookListAdapter extends ListAdapter<Phonebook, PhonebookViewHo
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), UserDetailPhonebookActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt("user_id", current.getUserId());
-            intent.putExtras(bundle);
-            v.getContext().startActivity(intent, bundle);
+            intent.putExtra("user_id", current.getUserId());
+            v.getContext().startActivity(intent);
         });
 
         holder.btnDelete.setOnClickListener(v -> {
@@ -55,10 +53,8 @@ public class PhonebookListAdapter extends ListAdapter<Phonebook, PhonebookViewHo
 
         holder.btnEdit.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), EditPhonebookActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putInt("user_id", current.getUserId());
-            intent.putExtras(bundle);
-            v.getContext().startActivity(intent, bundle);
+            intent.putExtra("user_id", current.getUserId());
+            v.getContext().startActivity(intent);
         });
 
     }
